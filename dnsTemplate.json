@@ -9,6 +9,21 @@
    },
    "variables": {},
    "resources": [
+    {
+        "type": "Microsoft.Network/dnszones/A",
+        "apiVersion": "2018-05-01",
+        "name": "[concat(parameters('dnszones_workingtalent_name'), '/@')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Network/dnszones', parameters('dnszones_workingtalent_name'))]"
+        ],
+        "properties": {
+            "TTL": 3600,
+            "ARecord": {
+                "IPv4Address": "31.1711.200.113."
+            },
+            "targetResource": {}
+        }
+    }
        {
            "type": "Microsoft.Network/dnszones",
            "apiVersion": "2018-05-01",
@@ -75,7 +90,8 @@
         "properties": {
             "TTL": 3600,
             "MXRecord": {
-                    "MXname": "0 workingtalent-nl.mail.protection.outlook.com."
+                "preference": 0,
+                "exchange": "workingtalent-nl.mail.protection.outlook.com."
             },
             "targetResource": {}
         }
