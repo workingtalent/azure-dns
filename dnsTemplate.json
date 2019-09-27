@@ -29,16 +29,16 @@
                "TTL": 172800,
                "NSRecords": [
                    {
-                       "nsdname": "ns1-07.azure-dns.com."
+                       "nsdname": "ns1-04.azure-dns.com."
                    },
                    {
-                       "nsdname": "ns2-07.azure-dns.net."
+                       "nsdname": "ns2-04.azure-dns.net."
                    },
                    {
-                       "nsdname": "ns3-07.azure-dns.org."
+                       "nsdname": "ns3-04.azure-dns.org."
                    },
                    {
-                       "nsdname": "ns4-07.azure-dns.info."
+                       "nsdname": "ns4-04.azure-dns.info."
                    }
                ],
                "targetResource": {}
@@ -56,7 +56,7 @@
                "SOARecord": {
                    "email": "azuredns-hostmaster.microsoft.com",
                    "expireTime": 2419200,
-                   "host": "ns1-07.azure-dns.com.",
+                   "host": "ns1-04.azure-dns.com.",
                    "minimumTTL": 300,
                    "refreshTime": 3600,
                    "retryTime": 300,
