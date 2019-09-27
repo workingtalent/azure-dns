@@ -22,7 +22,7 @@
                 "IPv4Address": "31.1711.200.113."
             },
             "targetResource": {}
-        }
+        },
     }
        {
            "type": "Microsoft.Network/dnszones",
@@ -85,7 +85,7 @@
         "apiVersion": "2018-05-01",
         "name": "[concat(parameters('dnszones_workingtalent_name'), '/@')]",
         "dependsOn": [
-            "[resourceId('Microsoft.Network/dnszones', parameters('dnszones_workingtalent_name'))]"
+            "[resourceId('Microsoft.Network/dnszones', parameters('dnszones_workingtalent_name'))]",
         ],
         "properties": {
             "TTL": 3600,
