@@ -13,3 +13,6 @@ jobs:
     - name: Install build tools using NPM
       uses: actions/setup-node@v1
     - run: npm install jsonlint -g
+
+    - name: Run jsonlint
+      run: jsonlint dnsTemplate.json
