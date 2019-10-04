@@ -9,6 +9,21 @@
    },
    "variables": {},
    "resources": [
+    {
+        "type": "Microsoft.Network/dnszones/A",
+        "apiVersion": "2018-05-01",
+        "name": "[concat(parameters('dnszones_workingtalent_name'), '/@')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Network/dnszones', parameters('dnszones_workingtalent_name'))]"
+        ],
+        "properties": {
+            "TTL": 3600,
+            "ARecord": {
+                "IPv4Address": "31.1711.200.113."
+            },
+            "targetResource": {}
+        },
+    }
        {
            "type": "Microsoft.Network/dnszones",
            "apiVersion": "2018-05-01",
@@ -29,16 +44,16 @@
                "TTL": 172800,
                "NSRecords": [
                    {
-                       "nsdname": "ns1-07.azure-dns.com."
+                       "nsdname": "ns1-04.azure-dns.com."
                    },
                    {
-                       "nsdname": "ns2-07.azure-dns.net."
+                       "nsdname": "ns2-04.azure-dns.net."
                    },
                    {
-                       "nsdname": "ns3-07.azure-dns.org."
+                       "nsdname": "ns3-04.azure-dns.org."
                    },
                    {
-                       "nsdname": "ns4-07.azure-dns.info."
+                       "nsdname": "ns4-04.azure-dns.info."
                    }
                ],
                "targetResource": {}
@@ -65,5 +80,22 @@
                "targetResource": {}
            }
        }
-   ]
+       {
+        "type": "Microsoft.Network/dnszones/MX",
+        "apiVersion": "2018-05-01",
+        "name": "[concat(parameters('dnszones_workingtalent_name'), '/@')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Network/dnszones', parameters('dnszones_workingtalent_name'))]",
+        ],
+        "properties": {
+            "TTL": 3600,
+            "MXRecord": {
+                "preference": 0,
+                "exchange": "workingtalent-nl.mail.protection.outlook.com."
+            },
+            "targetResource": {}
+        }
+    }
+]
 }
+
