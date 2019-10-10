@@ -15,8 +15,8 @@
     - uses: "Azure/github-actions/arm@master"
     - env: = {
               AZURE_RESOURCE_GROUP = "<Dev_Test_group>"
-              AZURE_TEMPLATE_LOCATION = "<https://github.com/workingtalent/azure-dns/blob/master/dnsTemplate.json>"
-              AZURE_TEMPLATE_PARAM_FILE = ""
+              AZURE_TEMPLATE_LOCATION = "https://github.com/workingtalent/azure-dns/blob/master/dnsTemplate.json"
+              AZURE_TEMPLATE_PARAM_FILE = "https://github.com/workingtalent/azure-dns/blob/master/parameter.dns.json"
   }
     - needs: = ["Azure Login"]
 }
