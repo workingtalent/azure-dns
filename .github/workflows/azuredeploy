@@ -1,0 +1,8 @@
+action "Manage Azure Resources" {
+  uses = "Azure/github-actions/arm@master"
+  env = {
+    AZURE_RESOURCE_GROUP = "<Dev_Test_group>"
+    AZURE_TEMPLATE_LOCATION = "<https://github.com/workingtalent/azure-dns/blob/master/dnsTemplate.json>"
+    AZURE_TEMPLATE_PARAM_FILE = "<URL or Relative path in your repository>"
+  }
+}
