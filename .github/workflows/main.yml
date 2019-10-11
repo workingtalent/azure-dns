@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [pull_request]
 
 jobs:
   build:
@@ -9,9 +9,26 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      
+    - name: Install build tools using NPM
+      uses: actions/setup-node@v1
+    - run: npm install jsonlint -g
+
+    - name: Run jsonlint
+      run: jsonlint dnsTemplate.json
+
+name: AzureLogin
+
+on: [push]
+
+jobs: 
+  build-and-deploy: 
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+     - run: |
+        az webapp list --query "[?state=='Running']"
