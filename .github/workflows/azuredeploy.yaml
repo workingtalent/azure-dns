@@ -5,6 +5,8 @@
 
     - action: "Azure Login" {
     - uses: = "Azure/github-actions/login@master"
+    - env: = {
+                AZURE_SUBSCRIPTION = ${{ secrets.AZURE_SUBSCRIPTION}}
   }
     - secrets: = ["AZURE_SUBSCRIPTION", "AZURE_SERVICE_APP_ID ", "AZURE_SERVICE_PASSWORD", "AZURE_SERVICE_TENANT"]
 }
