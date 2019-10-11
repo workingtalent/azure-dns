@@ -1,0 +1,10 @@
+name: "Git actions for Azure"
+on: [pull_request]
+
+jobs:
+     azurelogin:
+       runs-on: ubuntu-latest
+       steps:
+          - uses: azure/actions/login@v1
+            with:
+              creds: ${{ secrets.AZURE_CREDENTIALS }}
